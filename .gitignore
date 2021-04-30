@@ -2,6 +2,7 @@
 /dist
 /node_modules
 /mongo-data-4.4
+/uploads
 
 # Logs
 logs
