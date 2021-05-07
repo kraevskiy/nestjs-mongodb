@@ -11,6 +11,9 @@ import { getMongoConfig } from './config/mongo.config';
 import { FilesModule } from './files/files.module';
 import { SitemapController } from './sitemap/sitemap.controller';
 import { SitemapModule } from './sitemap/sitemap.module';
+import { TelegramService } from './telegram/telegram.service';
+import { TelegramModule } from './telegram/telegram.module';
+import { getTelegramConfig } from './config/telegram.config';
 
 @Module({
   imports: [
@@ -18,15 +21,21 @@ import { SitemapModule } from './sitemap/sitemap.module';
     TypegooseModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
-      useFactory: getMongoConfig
+      useFactory: getMongoConfig,
     }),
     AuthModule,
     TopPageModule,
     ProductModule,
     ReviewModule,
     FilesModule,
-    SitemapModule],
+    SitemapModule,
+    TelegramModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: getTelegramConfig,
+    })],
   controllers: [AppController, SitemapController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule {
+}

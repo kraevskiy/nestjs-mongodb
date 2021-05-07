@@ -47,6 +47,7 @@
     "rimraf": "^3.0.2",
     "rxjs": "^6.6.6",
     "sharp": "^0.28.1",
+    "telegraf": "^4.3.0",
     "xml2js": "^0.4.23"
   },
   "devDependencies": {
